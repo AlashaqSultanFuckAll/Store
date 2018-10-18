@@ -13,7 +13,7 @@ function forEachObject(obj, func) {
 client.on("ready", () => {
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "FiveStore✍")
+        guild = client.guilds.find("name", "Royal Network®")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -33,7 +33,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('made it till here!');
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "FiveStore✍")
+        guild = client.guilds.find("name", "Royal Network®")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -55,20 +55,32 @@ message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
 }
 });
 
-client.on('message', message => {
-    if (message.author.bot) return;
-    if (message.content.startsWith("$myinv")) {
-    message.guild.fetchInvites()
-    .then(invites => message.channel.send(`لقد جلبت ${invites.find(invite => invite.inviter.id === message.author.id).uses} عضو لهذا السيرفر`))
-     
-    }
+  client.on('message', message => {
+   if(message.content.startsWith(prefix + "دعوات")){
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`);
 });
-
+  }
+});
+  
+  
 client.on('message', message => {
     if (message.content === 'ping') {
     	message.reply('pong');
   	}
 });
+
+client.on('message',function(message) {
+    
+    if(message.content.startsWith("<@497856510437752833>")) {
+        message.channel.send(' This is Central Bot For Royal-System Server')
+
+    }
+});
+
 
 client.on('message', message => {
   if (message.author.bot) return;
@@ -107,7 +119,7 @@ if (message.member.voiceChannel == null) return message.channel.send(`**الرج
 
 client.on('message', message => {
     if (!message.guild) return; 
-    if (message.content.startsWith("رابط")) {
+    if (message.content.startsWith("دعوة")) {
 
         message.channel.createInvite({
         thing: true,
@@ -252,31 +264,31 @@ client.on('message', message => {
       if (!message.content.startsWith(prefix)) return;
       var args = message.content.split(' ').slice(1);
       var argresult = args.join(' ');
-      if (message.author.id == 286088294234718209) return;
+      if (message.author.id == 3497856510437752833) return;
 
 
     if (message.content.startsWith(prefix + 'playing')) {
-    if (message.author.id !== '286088294234718209') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '346045919072092161') return message.reply('** هذا الأمر مخصص للاداره **')
     client.user.setGame(argresult);
         message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
     } else
 
 
-    if (message.content.startsWith(prefix + 'streem')) {
-    if (message.author.id !== '286088294234718209') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
-    client.user.setGame(argresult, "http://twitch.tv/i_kahrba999");
+    if (message.content.startsWith(prefix + 'stream')) {
+    if (message.author.id !== '346045919072092161') return message.reply('** هذا الأمر مخصص للاداره **')
+    client.user.setGame(argresult, "http://twitch.tv/AhmedAlashaq");
         message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
     } else
 
     if (message.content.startsWith(prefix + 'setname')) {
-    if (message.author.id !== '286088294234718209') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '346045919072092161') return message.reply('** هذا الأمر مخصص للاداره **')
       client.user.setUsername(argresult).then
           message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
       return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
     } else
 
     if (message.content.startsWith(prefix + 'setavatar')) {
-    if (message.author.id !== '286088294234718209') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    if (message.author.id !== '346045919072092161') return message.reply('** هذا الأمر مخصص للاداره **')
     client.user.setAvatar(argresult);
         message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
     }
@@ -352,9 +364,8 @@ client.on('message', message => {
        if(!message.member.hasPermission('ADMINISTRATOR')) return;
                 var bc = new Discord.RichEmbed()
                 .addField('» السيرفر :', `${message.guild.name}`)
-                .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
                 .addField(' » الرسالة : ', args)
-                .setImage('https://media.discordapp.net/attachments/420910784558923787/464235980094701578/331414.png')
+                .setImage('https://cdn.discordapp.com/attachments/447451833447874591/498498907161100298/aghfh.png')
                 .setColor('RANDOM')
                 // m.send(`[${m}]`);
                 m.send(`${m}`,{embed: bc});
@@ -366,6 +377,10 @@ client.on('message', message => {
     });
 
 
+client.on('message', message => {
+ if(message.content.startsWith(prefix + "come")) {
+message.member.voiceChannel.join();
+}
+});
 
-
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.TOKEN);

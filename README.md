@@ -1,2 +1,2 @@
-# MuSiic
-Bot MuSiic by L kahrba.
+# Royal NetWork
+Bot By Alashaq
