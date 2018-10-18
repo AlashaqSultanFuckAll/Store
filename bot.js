@@ -13,7 +13,7 @@ function forEachObject(obj, func) {
 client.on("ready", () => {
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "MuSiic")
+        guild = client.guilds.find("name", "FiveStore✍")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -33,7 +33,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('made it till here!');
     var guild;
     while (!guild)
-        guild = client.guilds.find("name", "MuSiic")
+        guild = client.guilds.find("name", "FiveStore✍")
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -69,16 +69,6 @@ client.on('message', message => {
     	message.reply('pong');
   	}
 });
-
-client.on('message',function(message) {
-    
-    if(message.content.startsWith("<@464237073407410176>")) {
-        message.channel.send('Hey Im **●MuSiic. - Bot.**  A Nice Bot Developed By:`@*Kahrba. ، ✩#1863  ')
-        message.channel.send('Hey Im **●MuSiic. - Bot.**  A Nice Bot Developed By:`@AhmedAlashaq. ، ✩#5531 ')
-
-    }
-});
-
 
 client.on('message', message => {
   if (message.author.bot) return;
@@ -379,5 +369,3 @@ client.on('message', message => {
 
 
 client.login(process.env.BOT_TOKEN);
-
-client.login(process.env.TOKEN);
