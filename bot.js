@@ -365,7 +365,7 @@ client.on('message', message => {
                 var bc = new Discord.RichEmbed()
                 .addField('» السيرفر :', `${message.guild.name}`)
                 .addField(' » الرسالة : ', args)
-                .setImage('https://cdn.discordapp.com/attachments/447451833447874591/498498907161100298/aghfh.png')
+                .setImage('https://cdn.discordapp.com/attachments/447179571045859338/502371116728451072/o.jpg')
                 .setColor('RANDOM')
                 // m.send(`[${m}]`);
                 m.send(`${m}`,{embed: bc});
